@@ -10,7 +10,13 @@ namespace StringCalc.Core
     {
         public static int Add(string nums)
         {
-            return 0;
+            var returnVal = 0;
+            if (!String.IsNullOrEmpty(nums))
+            {
+                returnVal = Int32.Parse(nums);
+            }
+            
+            return returnVal;
         }
     }
 }

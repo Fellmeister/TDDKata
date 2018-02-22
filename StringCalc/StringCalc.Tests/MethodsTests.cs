@@ -14,5 +14,12 @@ namespace StringCalc.Tests
         {
             Assert.That(Methods.Add(""), Is.EqualTo(0));
         }
+
+        [TestMethod]
+        public void WhenPassedSingleNumber_ReturnsSingleNumber()
+        {
+            Assert.That(Methods.Add("1"), Is.EqualTo(1));
+        }
+        
     }
 }
