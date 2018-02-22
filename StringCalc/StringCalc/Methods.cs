@@ -7,19 +7,34 @@ namespace StringCalc.Core
         public static int Add(string nums)
         {
             var returnVal = 0;
-
-            if (!String.IsNullOrEmpty(nums))
+            
+            if (IsValidNumsString(nums))
             {
-                nums = nums.Replace("\n", ",");
-
-                foreach (var num in nums.Split(','))
-                {
-                    returnVal += int.Parse(num);
-                }
-                
+                nums = RemoveNewLines(nums);
+                returnVal = SumMyNums(nums);
             }
             
             return returnVal;
+        }
+
+        private static int SumMyNums(string nums)
+        {
+            var returnVal = 0;
+            foreach (var num in nums.Split(','))
+            {
+                returnVal += int.Parse(num);
+            };
+            return returnVal;
+        }
+
+        private static string RemoveNewLines(string nums)
+        {
+            return nums.Replace("\n", ",");
+        }
+
+        private static bool IsValidNumsString(string nums)
+        {
+            return !String.IsNullOrEmpty(nums);
         }
     }
 }

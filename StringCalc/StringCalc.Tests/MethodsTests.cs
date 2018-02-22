@@ -41,6 +41,10 @@ namespace StringCalc.Tests
             Assert.That(Methods.Add(nums), Is.EqualTo(result));
         }
 
-
+        //[TestCase("//;\n1;4", 5)]
+        //public void WhenPassedDelimiterOnFirstLine_ReturnsSum(string nums, int result)
+        //{
+        //    Assert.That(Methods.Add(nums), Is.EqualTo(result));
+        //}
     }
 }
