@@ -1,5 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using StringCalc.Core;
+using Assert = NUnit.Framework.Assert;
 
 namespace StringCalc.Tests
 {
@@ -7,8 +10,9 @@ namespace StringCalc.Tests
     public class MethodsTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void WhenPassedEmptyString_ReturnsZero()
         {
+            Assert.That(Methods.Add(""), Is.EqualTo(0));
         }
     }
 }

@@ -8,5 +8,9 @@ namespace StringCalc.Core
 {
     public class Methods
     {
+        public static int Add(string nums)
+        {
+            return 0;
+        }
     }
 }
