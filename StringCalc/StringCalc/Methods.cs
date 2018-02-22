@@ -10,7 +10,8 @@ namespace StringCalc.Core
 
             if (!String.IsNullOrEmpty(nums))
             {
-                
+                nums = nums.Replace("\n", ",");
+
                 foreach (var num in nums.Split(','))
                 {
                     returnVal += int.Parse(num);

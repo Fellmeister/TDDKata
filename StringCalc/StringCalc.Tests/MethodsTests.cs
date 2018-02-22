@@ -24,12 +24,23 @@ namespace StringCalc.Tests
         [TestCase("1,1", 2)]
         [TestCase("1,2", 3)]
         [TestCase("4,1", 5)]
+        public void WhenPassedTwoNumbers_ReturnsSum(string nums, int result)
+        {
+            Assert.That(Methods.Add(nums), Is.EqualTo(result));
+        }
+
+        [TestCase("4,1,4", 9)]
         public void WhenPassedMultipleNumbers_ReturnsSum(string nums, int result)
         {
             Assert.That(Methods.Add(nums), Is.EqualTo(result));
         }
 
+        [TestCase("4\n1,4", 9)]
+        public void WhenPassedNewLineCharsAndMultipleNumbers_ReturnsSum(string nums, int result)
+        {
+            Assert.That(Methods.Add(nums), Is.EqualTo(result));
+        }
 
-        
+
     }
 }
