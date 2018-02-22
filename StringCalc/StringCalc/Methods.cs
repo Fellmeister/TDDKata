@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace StringCalc.Core
 {
@@ -10,17 +11,24 @@ namespace StringCalc.Core
             
             if (IsValidNumsString(nums))
             {
+                var delimiter = ',';
+                if (nums.Length > 4 && nums.Substring(0, 2) == "//")
+                {
+                    delimiter = nums.Substring(2, 1).Take(1).First();
+                    nums = nums.Remove(0, 4);
+                }
+
                 nums = RemoveNewLines(nums);
-                returnVal = SumMyNums(nums);
+                returnVal = SumMyNums(nums,delimiter);
             }
             
             return returnVal;
         }
 
-        private static int SumMyNums(string nums)
+        private static int SumMyNums(string nums, char delimiter)
         {
             var returnVal = 0;
-            foreach (var num in nums.Split(','))
+            foreach (var num in nums.Split(delimiter))
             {
                 returnVal += int.Parse(num);
             };
