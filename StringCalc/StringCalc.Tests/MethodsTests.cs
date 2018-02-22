@@ -9,19 +9,18 @@ namespace StringCalc.Tests
     [TestClass]
     public class MethodsTests
     {
-        [TestMethod]
+        [Test]
         public void WhenPassedEmptyString_ReturnsZero()
         {
             Assert.That(Methods.Add(""), Is.EqualTo(0));
         }
 
-        [TestMethod]
+        [Test]
         public void WhenPassedSingleNumber_ReturnsSingleNumber()
         {
             Assert.That(Methods.Add("1"), Is.EqualTo(1));
         }
 
-        [Test]
         [TestCase("1,1", 2)]
         [TestCase("1,2", 3)]
         [TestCase("4,1", 5)]
