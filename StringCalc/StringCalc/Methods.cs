@@ -35,10 +35,28 @@ namespace StringCalc.Core
         private static int SumMyNums(string nums, char delimiter)
         {
             var returnVal = 0;
+            var negNumsDetected = 0;
+            var negNumsFound = "";
+
             foreach (var num in nums.Split(delimiter))
             {
-                returnVal += int.Parse(num);
+                var currentNum = int.Parse(num);
+
+                if (currentNum < 0)
+                {
+                    negNumsFound = $"{num}, ";
+                    negNumsDetected++;
+                }
+                else
+                {
+                    returnVal += currentNum;
+                }
+                
             };
+            if (negNumsDetected > 0)
+            {
+                throw new ArgumentException($"There are {negNumsDetected} negative numbers detected: {negNumsFound}");
+            }
             return returnVal;
         }
 

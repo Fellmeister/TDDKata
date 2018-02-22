@@ -46,5 +46,10 @@ namespace StringCalc.Tests
         {
             Assert.That(Methods.Add(nums), Is.EqualTo(result));
         }
+        
+        [TestCase("1,-1")]
+        public void WhenPassedNegativeNumberPassed_ThrowsException(string nums) { 
+            Assert.Throws<ArgumentException>(() => Methods.Add(nums));        
+        }
     }
 }
