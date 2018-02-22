@@ -20,6 +20,17 @@ namespace StringCalc.Tests
         {
             Assert.That(Methods.Add("1"), Is.EqualTo(1));
         }
+
+        [Test]
+        [TestCase("1,1", 2)]
+        [TestCase("1,2", 3)]
+        [TestCase("4,1", 5)]
+        public void WhenPassedMultipleNumbers_ReturnsSum(string nums, int result)
+        {
+            Assert.That(Methods.Add(nums), Is.EqualTo(result));
+        }
+
+
         
     }
 }

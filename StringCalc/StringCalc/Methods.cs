@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StringCalc.Core
 {
@@ -11,9 +7,15 @@ namespace StringCalc.Core
         public static int Add(string nums)
         {
             var returnVal = 0;
+
             if (!String.IsNullOrEmpty(nums))
             {
-                returnVal = Int32.Parse(nums);
+                
+                foreach (var num in nums.Split(','))
+                {
+                    returnVal += int.Parse(num);
+                }
+                
             }
             
             return returnVal;
