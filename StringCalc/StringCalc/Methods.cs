@@ -11,18 +11,25 @@ namespace StringCalc.Core
             
             if (IsValidNumsString(nums))
             {
-                var delimiter = ',';
-                if (nums.Length > 4 && nums.Substring(0, 2) == "//")
-                {
-                    delimiter = nums.Substring(2, 1).Take(1).First();
-                    nums = nums.Remove(0, 4);
-                }
+                char delimiter = GetAndCleanDelimiter(ref nums);
 
                 nums = RemoveNewLines(nums);
-                returnVal = SumMyNums(nums,delimiter);
+                returnVal = SumMyNums(nums, delimiter);
             }
-            
+
             return returnVal;
+        }
+
+        private static char GetAndCleanDelimiter(ref string nums)
+        {
+            var delimiter = ',';
+            if (nums.Length > 4 && nums.Substring(0, 2) == "//")
+            {
+                delimiter = nums.Substring(2, 1).Take(1).First();
+                nums = nums.Remove(0, 4);
+            }
+
+            return delimiter;
         }
 
         private static int SumMyNums(string nums, char delimiter)
